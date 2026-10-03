@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>ぷろきぃ / ZEN大学</title>
+<meta name="description" content="ZEN大学で学ぶ、プログラミング初心者のぷろきぃです。AIに相談しながら、自分用のメモ検索やミニPC、学習の工夫を試しています。">
+<meta property="og:title" content="ぷろきぃ / ZEN大学"><meta property="og:description" content="ZEN大学2年。プログラミング初心者。AIを活用し、個人用のメモ検索やミニPCの運用を試しています。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@programming_abc">
+
+<style>
+:root { --blue: #2454ff; --ink: #141c30; --muted: #4e5970; --line: #dbe1ec; --pale: #f3f6fc; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0px; color: var(--ink); background: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; font-size: 16px; line-height: 1.85; }
+a { color: inherit; text-underline-offset: 0.22em; }
+a:focus-visible { outline: rgb(255, 156, 42) solid 3px; outline-offset: 6px; }
+a:hover { color: var(--blue); }
+.wrap, .header { width: min(1120px, 100% - 64px); margin: auto; }
+.skip { position: absolute; top: -100px; padding: 12px; background: var(--ink); color: white; }
+.skip:focus { top: 0px; z-index: 10; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 25px 0px; border-bottom: 1px solid var(--line); }
+.wordmark { font-size: 24px; font-weight: 850; text-decoration: none; letter-spacing: -0.04em; }
+.wordmark-dot { color: var(--blue); margin-left: 5px; }
+.header nav { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 650; }
+.header nav a { text-decoration: none; }
+.nav-x { border-bottom: 2px solid var(--blue); }
+.hero { display: grid; grid-template-columns: 1fr 310px; gap: 80px; padding-top: 80px; padding-bottom: 100px; align-items: center; }
+.eyebrow { font-size: 14px; font-weight: 750; color: var(--blue); letter-spacing: 0.06em; margin: 0px 0px 22px; }
+.hero h1 { font-size: clamp(38px, 4.6vw, 60px); line-height: 1.35; letter-spacing: -0.045em; margin: 0px 0px 28px; font-weight: 850; }
+.hero h1 span { display: block; color: var(--blue); }
+.mobile-break { display: none; }
+.intro { font-size: 18px; margin: 0px 0px 20px; max-width: 36em; }
+.honest { color: var(--muted); font-size: 15px; max-width: 38em; margin-bottom: 30px; }
+.honest strong { display: block; color: var(--ink); margin-top: 6px; }
+.button { display: inline-block; padding: 13px 23px; border: 1px solid transparent; border-radius: 5px; font-weight: 700; text-decoration: none; font-size: 15px; }
+.primary { background: var(--blue); color: white; }
+.primary:hover { background: rgb(18, 55, 190); color: white; }
+.identity { background: var(--pale); padding: 27px 30px 30px; border: 1px solid var(--line); box-shadow: rgb(226, 233, 255) 12px 12px 0px; transform: rotate(2deg); }
+.identity > * { transform: rotate(-2deg); }
+.card-kicker { font-size: 14px; font-weight: 700; margin: 0px 0px 22px; }
+.avatar { display: block; width: 170px; height: 170px; object-fit: cover; border-radius: 50%; margin: 0px auto 25px; border: 6px solid white; }
+.identity-name { font-size: 32px; line-height: 1.4; font-weight: 800; letter-spacing: 0.02em; }
+.identity-name span { display: block; text-transform: uppercase; font-size: 13px; letter-spacing: 0.18em; margin-top: 4px; color: var(--muted); }
+.identity p:not(.card-kicker) { font-size: 13px; margin: 15px 0px 4px; }
+.identity a { color: var(--blue); font-size: 15px; font-weight: 650; }
+.identity-note { border-top: 1px solid var(--line); margin-top: 25px; padding-top: 18px; font-size: 13px; }
+.experiments { padding: 0px 0px 95px; }
+.section-head { border-top: 2px solid var(--ink); padding-top: 35px; margin-bottom: 35px; }
+.section-head h2, h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.5; letter-spacing: -0.03em; margin: 0px 0px 20px; }
+.section-head > p:last-child { color: var(--muted); max-width: 45em; }
+.experiment-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.experiment { border-top: 1px solid var(--line); padding-top: 22px; }
+.experiment-no { font-size: 54px; line-height: 1.2; letter-spacing: -0.07em; font-weight: 800; color: rgb(198, 209, 239); margin-bottom: 20px; }
+.tag { font-weight: 750; font-size: 13px; color: var(--blue); margin: 0px 0px 12px; }
+.experiment h3 { font-size: 21px; line-height: 1.6; letter-spacing: -0.015em; margin: 0px 0px 18px; }
+.experiment p:not(.tag) { font-size: 15px; color: var(--muted); }
+.next { border-top: 1px dashed rgb(194, 202, 219); padding-top: 16px; margin-top: 24px; }
+.next b { display: block; color: var(--ink); font-size: 13px; margin-bottom: 6px; }
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; background: var(--pale); padding: 42px; margin-bottom: 100px; }
+.roles h2 { font-size: 28px; }
+.roles > div > p:last-child { font-size: 15px; color: var(--muted); }
+.role-rows > div { display: grid; grid-template-columns: 80px 1fr; gap: 14px; padding: 15px 0px; border-bottom: 1px solid var(--line); }
+.role-rows > div:last-child { border: 0px; }
+.role-rows b { font-size: 14px; color: var(--blue); }
+.role-rows p { margin: 0px; font-size: 14px; }
+.hello { background: var(--blue); color: white; padding: 70px 0px; }
+.hello-grid { display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: center; }
+.hello .eyebrow { color: rgb(220, 229, 255); }
+.hello h2 { font-size: 34px; }
+.hello-intro { font-size: 16px; }
+.topics { list-style: none; padding: 0px; margin: 27px 0px 30px; font-size: 15px; }
+.topics li { border-left: 2px solid rgb(157, 181, 255); padding-left: 15px; margin: 12px 0px; }
+.light { background: white; color: var(--blue); }
+.light:hover { background: rgb(230, 237, 255); color: rgb(17, 51, 185); }
+.handle { font-size: 14px; color: rgb(220, 229, 255); margin: 14px 0px 0px; }
+.qr-card { background: white; color: var(--ink); text-align: center; padding: 22px 20px; border-radius: 7px; }
+.qr-card p { margin: 0px 0px 8px; font-weight: 700; font-size: 16px; }
+.qr-card img { display: block; max-width: 100%; height: auto; margin: auto; }
+.qr-card b { display: block; font-size: 20px; }
+.qr-card span { display: block; font-size: 13px; color: var(--muted); }
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 30px 0px; font-size: 12px; color: var(--muted); }
+.footer p { margin: 0px; }
+.footer a { font-size: 13px; white-space: nowrap; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr 265px; gap: 40px; }
+  .identity { padding: 24px; }
+  .hero h1 { font-size: 42px; }
+  .experiment-list { gap: 22px; }
+  .experiment h3 { font-size: 18px; }
+  .roles { gap: 28px; padding: 28px; }
+  .roles h2 { font-size: 24px; }
+  .hello-grid { gap: 40px; }
+}
+@media (max-width: 680px) {
+  .wrap, .header { width: calc(100% - 40px); }
+  .header { padding: 18px 0px; gap: 12px; }
+  .wordmark { font-size: 22px; }
+  .header nav { gap: 14px; font-size: 12px; }
+  .header nav a:first-child { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 42px; padding-bottom: 60px; }
+  .hero h1 { font-size: 38px; line-height: 1.4; }
+  .hero .eyebrow { font-size: 12px; letter-spacing: 0px; }
+  .mobile-break { display: block; }
+  .intro { font-size: 16px; }
+  .honest { font-size: 14px; }
+  .identity { transform: none; box-shadow: rgb(226, 233, 255) 8px 8px 0px; max-width: 360px; width: 100%; margin: auto; }
+  .identity > * { transform: none; }
+  .identity .avatar { float: right; width: 95px; height: 95px; margin: 0px 0px 10px 15px; }
+  .identity .card-kicker { margin-bottom: 12px; }
+  .identity .identity-name { font-size: 30px; }
+  .identity-note { clear: both; }
+  .section-head { padding-top: 26px; }
+  .section-head h2, h2 { font-size: 28px; }
+  .section-head > p:last-child { font-size: 15px; }
+  .experiment-list { grid-template-columns: 1fr; gap: 32px; }
+  .experiment { display: grid; grid-template-columns: 45px 1fr; gap: 16px; }
+  .experiment-no { font-size: 37px; }
+  .experiment h3 { font-size: 21px; }
+  .experiment p:not(.tag) { font-size: 15px; }
+  .experiments { padding-bottom: 48px; }
+  .roles { grid-template-columns: 1fr; padding: 24px; margin-bottom: 55px; gap: 5px; }
+  .roles h2 { font-size: 24px; }
+  .role-rows > div { grid-template-columns: 75px 1fr; }
+  .hello { padding: 45px 0px; }
+  .hello-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hello h2 { font-size: 29px; }
+  .qr-card { width: 260px; margin: auto; }
+  .footer { display: block; font-size: 12px; }
+  .footer p { margin-bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@media print {
+  .header nav, .skip, .button, .footer a { display: none; }
+  .hero, .roles, .hello-grid { display: block; }
+  .identity { break-inside: avoid; max-width: 300px; }
+  .hero { padding: 20px 0px; }
+  .hello { background: white; color: var(--ink); }
+  .hello .eyebrow, .handle { color: var(--blue); }
+  .experiment-list { display: block; }
+  .experiment { break-inside: avoid; }
+  .qr-card { width: 200px; }
+  .roles, .experiments { margin-bottom: 20px; }
+}
+.hero h1 { font-size: clamp(38px, 4.8vw, 62px); margin-bottom: 24px; }
+.hero .intro { font-size: 23px; line-height: 1.7; }
+.hero .honest { font-size: 16px; line-height: 1.9; }
+.identity, .identity > * { transform: none; }
+.identity { box-shadow: none; }
+.experiment-no { font-size: 32px; color: rgb(105, 128, 180); margin-bottom: 16px; }
+.roles { margin-bottom: 70px; }
+.hello h2 { font-size: 38px; }
+@media (max-width: 680px) {
+  .hero .intro { font-size: 20px; }
+  .hero .honest { font-size: 15px; }
+  .hero { gap: 35px; }
+  .identity .avatar { float: right; width: 95px; height: 95px; }
+  .experiment-no { font-size: 28px; }
+  .hello h2 { font-size: 30px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="header"><a href="#" class="wordmark" aria-label="ぷろきぃ トップ">ぷろきぃ</a><nav aria-label="ページ内"><a href="#experiments">最近試していること</a><a href="#hello">連絡先</a><a class="nav-x" href="https://x.com/programming_abc" target="_blank" rel="noopener noreferrer">X</a></nav></header>
+<main id="main">
+<section class="hero wrap" aria-labelledby="intro-title">
+<div class="hero-copy"><p class="eyebrow">ZEN大学 2年 / @programming_abc</p><h1 id="intro-title">ぷろきぃ</h1><p class="intro">ZEN大学で学ぶ、プログラミング初心者です。<br>AIを活用して、自分用のメモ検索や<br>ミニPCの運用を試しています。</p><p class="honest">実装や設定は、現在ほぼAIに助けてもらっています。動いた仕組みを理解して、自分でも小さな修正ができるようになりたいと考えています。</p><a class="button primary" href="https://x.com/programming_abc" target="_blank" rel="noopener noreferrer">Xのプロフィール</a></div>
+<aside class="identity" aria-label="自己紹介カード"><img src="https://pbs.twimg.com/profile_images/2104644807671070720/ZUFexvQQ_400x400.jpg" referrerpolicy="no-referrer" width="400" height="400" alt="ぷろきぃのXアイコン" class="avatar"><div class="identity-name">ぷろきぃ<span>prokyi</span></div><p>ZEN大学 / 2025年4月入学</p><a href="https://x.com/programming_abc" target="_blank" rel="noopener noreferrer">@programming_abc</a><div class="identity-note">AI、PC、ネットの話がしたいです。</div></aside>
+</section>
+<section class="experiments wrap" id="experiments" aria-labelledby="experiments-title"><div class="section-head"><h2 id="experiments-title">最近試していること</h2><p>どれも個人用です。AIに実装を手伝ってもらい、実際に使いながら調整しています。</p></div>
+<div class="experiment-list">
+<article class="experiment"><div class="experiment-no">01</div><div><p class="tag">メモ</p><h3>自分のメモを<br>AIとの会話で参照する</h3><p>やりたいことや、前に話したことをメモにして保管。AIに質問するとき、それも見てもらえるようにしています。前に話したことも踏まえて、答えてもらえたら便利だなと思っています。</p></div></article>
+<article class="experiment"><div class="experiment-no">02</div><div><p class="tag">ミニPC</p><h3>ミニPCを<br>自宅サーバーにする</h3><p>普段のPCを切っても使えるよう、小型のPCをサーバーとして使っています。Ubuntuでメモを保管したり、自分用の処理を動かしたり。設定はAIに頼っています。</p></div></article>
+<article class="experiment"><div class="experiment-no">03</div><div><p class="tag">勉強</p><h3>数学の解説動画を<br>AIと作る</h3><p>数学を勉強し直すために、図が動く解説動画をAIに作ってもらいました。「もっと分かりやすく」と何度も頼んでいたら、動画の長さが約7時間になりました。</p></div></article>
+</div></section>
+<section class="roles wrap" aria-labelledby="roles-title"><div><h2 id="roles-title">皆さんの取り組みを<br>聞いてみたいです。</h2><p>Linuxもプログラミングも、基礎から学ぶ段階です。最初に作ったものや、AIを使うときに気をつけていることなど、皆さんの経験を聞けたら嬉しいです。</p></div><div class="role-rows"><div><b>聞きたい</b><p>最初に自分で作ったものや、最近取り組んでいること。</p></div><div><b>気になる</b><p>AIにどこまで任せて、どこから自分でやっているか。</p></div><div><b>これから</b><p>コードを少しずつ読めるようになりたいです。まずは動いているものの、小さな修正から。</p></div></div></section>
+<section class="hello" id="hello" aria-labelledby="hello-title"><div class="wrap hello-grid"><div><h2 id="hello-title">Xにいます</h2><p class="hello-intro">ご覧いただきありがとうございます。<br>AIの使い方や勉強の話、雑談など、気軽にお声がけください。</p><a class="button light" href="https://x.com/programming_abc" target="_blank" rel="noopener noreferrer">@programming_abc</a><p class="handle">このページの制作にもAIを利用しています。</p></div><div class="qr-card"><p>Xのプロフィール</p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbwAAAG8AQAAAACNyy1yAAAC90lEQVR4nO2ca3LrIAyFBXP/4x10/8u6OzArUEcSYJyHitPQJu75ppP6gcbJQQNCgAPTQ+T4mB0RDB0gjgPEcYA4DhDHAeI4QBwHiOMAcSaKExqLHFMuZ3JruSzwlCceJz5go8DwXOIkNoiIV/FPZuaV2mlf4Je/6mHicRMDhi8qTqhtZvhQh8yBEstnDua0XaOKevSBk88Q59/1JRYvXYM4qrhmePITIwzvA3GO+aq5K9uROK22qpdAVQeIM7dd5XoQiEqjmjhkHV6pu+5nDVAdDhBnpjh5G/hLmNqiVj2+LPCUJx4mHjcxYHiqdpWvAgC2z3qL3/g3RhieSZywbHlU+addv7SlbeBvwUAt9o6/8TjxARsFhvPzAHnhvFg3HxJLvKoXWzZAUgTffWKE4X0gzlAMYJ2++GJaS2Y1lQxAiQRstFUMoaoDxJkhDpXpqFUO2uk2qkrSuspdm8NqrKgOB4gz0Vepc842u0qdl24lSwFUhwPE+Yk8AOfAGqA2LCooXf92C9XhAHHm5gGExHZgIQH/lyUBrfe3AloO1eEDX50Zr7J07qXT7yJYriuv2jorxKsDxJFCt4Chx84z1SfL9bW66MWwC/Hq18Dl5uZXQ81cyYmts6oZqpZU7dZcoTocIM7cPADXddRtiTV1bWwLYtGuDhBHCt0Chh59EFpGUtrLU8uv1uTVLmRFzsoDLje5XV2v2tLU5VrrRfjqAHGk0C1g6LEf3l/6rVFa2jaNhXb1C+Byk+etDPXGcn0tAWr7Q7w6RhwsdwUMB/IAdZlKaFNXeWFzWs0MFG/OS3VrqOoAcX5oHyvppoCwdOtXdVNA2dn6vCceJB41qMDwvOKkba6KKhYnYA/LO9XjHzAMobwQwAgfGqZqo1rea/EyX3WMOFjuChi+4n4r2i210q0BqS2r1n2suvraIthf+qoRhn9bHLqZB9jlWlPNYnX5K8wFnMUB4vsYBrwr+BT1GGF4H4jjAHEcII4DxHGAOA4QxwHi0H0+Ab658vujYm0AAAAAAElFTkSuQmCC" width="240" height="240" alt="https://x.com/programming_abc を開くQRコード"><b>ぷろきぃ</b><span>@programming_abc</span></div></div></section>
+</main>
+<footer class="wrap footer"><p>ぷろきぃ / 個人のページ</p><p>学生個人のページです。大学の公式サイトではありません。</p><a href="#main">先頭へ</a></footer>
+</body></html>
